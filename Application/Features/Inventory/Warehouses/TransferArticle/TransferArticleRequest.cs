@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Articles.ValueObjects
+namespace Application.Features.Inventory.Warehouses.TransferArticle
 {
-
-    public sealed record ArticleId(Guid Value);
+    internal class TransferArticleRequest
+    {
+    }
 }
-

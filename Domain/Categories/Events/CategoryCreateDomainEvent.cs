@@ -1,11 +1,12 @@
-﻿using Domain.Abstractions;
+﻿
+using Domain.SharedKernel.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Category.Events
+namespace Domain.Categories.Events
 {
-  public sealed record CategoryCreateDomainEvent(Guid CategoryId) : IDomainEvent ;
+    public sealed record CategoryCreateDomainEvent(Guid CategoryId) : IDomainEvent;
 }

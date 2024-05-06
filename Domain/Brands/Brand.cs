@@ -1,5 +1,6 @@
-﻿using Domain.Abstractions;
+﻿
 using Domain.Brands.Events;
+using Domain.SharedKernel.Abstractions;
 
 namespace Domain.Brands
 {

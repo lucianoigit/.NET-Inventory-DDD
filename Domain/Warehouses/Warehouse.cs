@@ -1,38 +1,80 @@
-﻿using Domain.Abstractions;
-using Domain.Article.ValueObjects;
-using Domain.Warehouse.Events;
-using System;
-using System.Collections.Generic;
+﻿using Domain.SharedKernel.Abstractions;
+using Domain.SharedKernel.Primitives;
+using Domain.Warehouses.Articles;
+using Domain.Warehouses.Articles.ValueObjects;
+using Domain.Warehouses.Events;
+using Domain.Warehouses.ValueObjects;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.Warehouse
+namespace Domain.Warehouses;
+
+public sealed class Warehouse : Entity
 {
-    public sealed class Warehouse : Entity
+    private readonly List<Article> _articles = [];
+
+    public string Address { get; private set; } = default!;
+
+    public IReadOnlyList<Article> Articles => _articles.AsReadOnly();
+    private Warehouse() { }
+    private Warehouse(
+        Guid id,
+        string address) : base(id)
     {
-        private readonly List<ArticleId> _articleIds = [];
-        public Guid WarehouseId { get; private set; }
-        public string Adress { get; private set; }
+        Address = address;
+    }
 
-        public IReadOnlyList<ArticleId> ArticleIds => _articleIds.AsReadOnly();
+    
+
+    public static Warehouse Create(string address)
+    {
+        var warehouse = new Warehouse(
+            Guid.NewGuid(),
+            address);
+
+        warehouse.RaiseDomainEvents(new WarehouseCreateDomainEvent(warehouse.Id));
+
+        return warehouse;
+    }
+
+    public Article? GetArticleByCode(ArticleCode articleCode)
+    {
+        return _articles.FirstOrDefault(a => a.ArticleCode == articleCode);
+    }
+
+    public Result AddArticle(Article article)
+    {
+        if (_articles.Contains(article))
+            return Result.Failure(WarehouseErrors.ArticletAlreadyExists);
+
+        _articles.Add(article);
+
+        this.RaiseDomainEvents(new WarehouseAddArticleDomainEvent(Guid.NewGuid(), article));
+
+        return Result.Success();
+    }
 
 
-        private Warehouse(Guid warehouseId, string adress) : base(warehouseId)
-        {
-            Adress = adress;
-        }
+    public IReadOnlyList<Article> GetArticles()
+    {
+        return Articles;
+    }
 
-        public static Warehouse Create(string adress)
-        {
-            var warehouse = new Warehouse(Guid.NewGuid(), adress);
 
-            warehouse.RaiseDomainEvents(new InventoryCreateDomainEvent(warehouse.Id));
 
-            return warehouse;
-        }
+    public void IncrementArticleByCode(ArticleCode articleCode,int quantity)
+    {
+        var article = GetArticleByCode(articleCode);
 
-        public static 
+        if (article is null) return;
         
+        article.IncrementStock(quantity);
+    }
+    public void DecreaseArticleByCode(ArticleCode articleCode, int quantity)
+    {
+        var article = GetArticleByCode(articleCode);
+        if (article is not null)
+        {
+            article.DecreaseStock(quantity);
+        }
     }
 }

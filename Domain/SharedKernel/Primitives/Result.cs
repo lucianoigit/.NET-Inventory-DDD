@@ -5,7 +5,7 @@
 using Domain.SharedKernel.Primitives;
 using System.Diagnostics.CodeAnalysis;
 
-
+namespace Domain.SharedKernel.Primitives;
 
 /// <summary>
 /// Result Pattern implementation for error handling.

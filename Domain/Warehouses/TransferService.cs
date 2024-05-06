@@ -1,11 +1,11 @@
-﻿using Domain.Articles;
+﻿using Domain.Warehouses.Articles;
 using System;
 
 namespace Domain.Warehouses
 {
     public sealed class TransferService
     {
-        public void TransferirProductos(
+        public void TransferArticles(
             Article originArticle,
             Article destinationArticle,
    

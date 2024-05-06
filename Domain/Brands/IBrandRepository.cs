@@ -1,6 +1,6 @@
 ﻿namespace Domain.Brands
 {
-    internal interface IBrandRepository
+    public interface IBrandRepository
     {
         Task<Brand> GetByIdAsync(Guid id, CancellationToken cancellationtoken = default);
         Task<List<Brand>> GetAllAsync();

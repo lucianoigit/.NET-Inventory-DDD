@@ -6,4 +6,36 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Behaviors\" />
+    <Folder Include="Features\Inventory\Articles\BulkUpdate\" />
+    <Folder Include="Features\Inventory\Articles\BulkUpload\" />
+    <Folder Include="Features\Inventory\Articles\Delete\" />
+    <Folder Include="Features\Inventory\Articles\GetAdress\" />
+    <Folder Include="Features\Inventory\Articles\GetPrices\" />
+    <Folder Include="Features\Inventory\Articles\GetStock\" />
+    <Folder Include="Features\Inventory\Articles\Get\" />
+    <Folder Include="Features\Inventory\Articles\UpdatePrice\" />
+    <Folder Include="Features\Inventory\Articles\UpdateStock\" />
+    <Folder Include="Features\Inventory\Brands\AddArticles\" />
+    <Folder Include="Features\Inventory\Brands\RemoveArticles\" />
+    <Folder Include="Features\Inventory\Brands\Remove\" />
+    <Folder Include="Features\Inventory\Categories\Delete\" />
+    <Folder Include="Features\Inventory\Categories\RemoveArticle\" />
+    <Folder Include="Features\Inventory\Warehouses\Create\" />
+    <Folder Include="Features\Inventory\Warehouses\Delete\" />
+    <Folder Include="Features\Inventory\Warehouses\GetArticlesStock\" />
+    <Folder Include="Features\Inventory\Warehouses\GetArticles\" />
+    <Folder Include="Features\Inventory\Warehouses\GetById\" />
+    <Folder Include="Features\Inventory\Warehouses\Get\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
 </Project>

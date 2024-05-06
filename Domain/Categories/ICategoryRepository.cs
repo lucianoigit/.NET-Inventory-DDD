@@ -1,8 +1,10 @@
-﻿namespace Domain.Categories
+﻿using Domain.Categories.ValueObjects;
+
+namespace Domain.Categories
 {
-    internal interface ICategoryRepository
+    public interface ICategoryRepository
     {
-        Task<Category> GetByIdAsync(Guid id, CancellationToken cancellationtoken = default);
+        Task<Category> GetByIdAsync(CategoryId id, CancellationToken cancellationtoken = default);
         Task<List<Category>> GetAllAsync();
         void Add(Category brand);
         void Update(Category brand);

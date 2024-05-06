@@ -1,5 +1,6 @@
-﻿using Domain.Abstractions;
+﻿
 using Domain.Categories.Events;
+using Domain.SharedKernel.Abstractions;
 
 namespace Domain.Categories
 {

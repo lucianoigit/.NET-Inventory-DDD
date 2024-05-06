@@ -1,11 +1,12 @@
-﻿using Domain.Abstractions;
+﻿
+using Domain.SharedKernel.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Warehouse.Events
+namespace Domain.Warehouses.Events
 {
-    public sealed record InventoryCreateDomainEvent(Guid warehouseId) : IDomainEvent;
+    public sealed record WarehouseCreateDomainEvent(Guid warehouseId) : IDomainEvent;
 }
