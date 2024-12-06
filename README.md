@@ -81,20 +81,9 @@ El proyecto sigue una estructura modular basada en los principios de la arquitec
 
 ---
 
-## Endpoints de Ejemplo
-
-### Entidad: Inventario
-
-- **GET** `/api/inventory`: Obtiene una lista de productos en inventario.
-- **POST** `/api/inventory`: Agrega un nuevo producto al inventario.
-- **PUT** `/api/inventory/{id}`: Actualiza un producto existente.
-- **DELETE** `/api/inventory/{id}`: Elimina un producto por su ID.
-
----
-
 ## Tecnologías Utilizadas
 
-- **.NET 7**: Framework principal.
+- **.NET 8**: Framework principal.
 - **Entity Framework Core**: Para manejo de base de datos.
 - **MediatR**: Para implementar CQRS.
 - **FluentValidation**: Validación de modelos y comandos.
