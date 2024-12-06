@@ -46,7 +46,7 @@ El proyecto sigue una estructura modular basada en los principios de la arquitec
 
 1. **Clonar el Repositorio**
    ```bash
-   git clone <URL-del-repositorio>
+   git clone https://github.com/lucianoigit/.NET-Inventory-DDD
    cd .NET-Inventory-DDD
    ```
 
